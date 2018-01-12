@@ -1,0 +1,1 @@
+cmd_/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive/risa_dev_ramdrive.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive/risa_dev_ramdrive.ko /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive/risa_dev_ramdrive.o /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive/risa_dev_ramdrive.mod.o

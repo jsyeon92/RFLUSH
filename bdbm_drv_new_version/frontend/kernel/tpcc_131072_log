@@ -1,0 +1,306 @@
+[ 7872.705350] tpcc.sh (10311): drop_caches: 1
+[ 7873.444060] bdbm: bdbm_dm_stub is installed: /dev/bdbm_dm_stub (major:241 minor:0)
+[ 7873.463704] bdbm: =====================================================================
+[ 7873.463711] bdbm: DEVICE PARAMETERS
+[ 7873.463713] bdbm: =====================================================================
+[ 7873.463716] bdbm: # of channels = 10
+[ 7873.463718] bdbm: # of chips per channel = 30
+[ 7873.463721] bdbm: # of blocks per chip = 256
+[ 7873.463723] bdbm: # of pages per block = 128
+[ 7873.463725] bdbm: # of subpages per page = 1
+[ 7873.463728] bdbm: page main size  = 4096 bytes
+[ 7873.463730] bdbm: page oob size = 64 bytes
+[ 7873.463733] bdbm: device type = 3 (1: ramdrv, 2: ramdrive (intr), 3: ramdrive (timing), 4: BlueDBM, 5: libdummy, 6: libramdrive)
+[ 7873.463735] bdbm: 
+[ 7873.463738] bdbm: =====================================================================
+[ 7873.463740] bdbm: RAM DISK INFO
+[ 7873.463742] bdbm: =====================================================================
+[ 7873.463745] bdbm: the SSD capacity: 40265318400 (B), 39321600 (KB), 38400 (MB)
+[ 7877.133317] bdbm: ramssd addr = ffffc90050001000
+[ 7877.133319] bdbm: 
+[ 7877.133547] bdbm: [dm_ramdrive_probe] probe done!
+[ 7877.133548] bdbm: [dm_ramdrive_open] open done!
+[ 7877.196487] bdbm: nvm cache addr = ffffc90a61a08000
+[ 7877.225326] bdbm: ==========================================================
+[ 7877.225327] bdbm: NVM CONFIGURATION
+[ 7877.225328] bdbm: ==========================================================
+[ 7877.225329] bdbm: total size = 536870912, nr_nvm_pages = 131072, nvm_page_size	= 4096
+[ 7877.479256] bdbm: TRIM is disabled
+[ 7877.479456] bdbm: =====================================================================
+[ 7877.479457] bdbm: DEVICE PARAMETERS
+[ 7877.479458] bdbm: =====================================================================
+[ 7877.479458] bdbm: # of channels = 10
+[ 7877.479459] bdbm: # of chips per channel = 30
+[ 7877.479459] bdbm: # of blocks per chip = 256
+[ 7877.479460] bdbm: # of pages per block = 128
+[ 7877.479460] bdbm: # of subpages per page = 1
+[ 7877.479461] bdbm: page main size  = 4096 bytes
+[ 7877.479461] bdbm: page oob size = 64 bytes
+[ 7877.479462] bdbm: device type = 3 (1: ramdrv, 2: ramdrive (intr), 3: ramdrive (timing), 4: BlueDBM, 5: libdummy, 6: libramdrive)
+[ 7877.479463] bdbm: 
+[ 7877.479463] bdbm: =====================================================================
+[ 7877.479464] bdbm: FTL CONFIGURATION
+[ 7877.479464] bdbm: =====================================================================
+[ 7877.479465] bdbm: mapping type = 4 (1: no ftl, 2: block-mapping, 3: RSD, 4: page-mapping, 5: dftl)
+[ 7877.479465] bdbm: gc policy = 3 (1: merge 2: random, 3: greedy, 4: cost-benefit)
+[ 7877.479466] bdbm: wl policy = 1 (1: none, 2: swap)
+[ 7877.479466] bdbm: trim mode = 2 (1: enable, 2: disable)
+[ 7877.479467] bdbm: kernel sector = 512 bytes
+[ 7877.479467] bdbm: 
+[ 7877.479468] bdbm: [bdbm_drv_main] bdbm_drv is registered!
+[ 7878.511348] bdbm-warning: bdbm_blk_getgeo: heads=16, cylinders=1024, sectors=192 (total sectors=78643200) [/home/js/final/bdbm_drv/frontend/kernel/blkdev.c:94]
+[ 7878.525734] bdbm: llm_make_req: 0, 1
+[ 7881.106611] audit_printk_skb: 6 callbacks suppressed
+[ 7881.106613] audit: type=1400 audit(1498449439.506:182): apparmor="STATUS" operation="profile_replace" name="/usr/sbin/ippusbxd" pid=10440 comm="apparmor_parser"
+[ 7881.171057] audit: type=1400 audit(1498449439.570:183): apparmor="STATUS" operation="profile_replace" name="/usr/sbin/cups-browsed" pid=10438 comm="apparmor_parser"
+[ 7881.198670] audit: type=1400 audit(1498449439.598:184): apparmor="STATUS" operation="profile_replace" name="/usr/sbin/mysqld" pid=10442 comm="apparmor_parser"
+[ 7881.206479] audit: type=1400 audit(1498449439.606:185): apparmor="STATUS" operation="profile_replace" name="/sbin/dhclient" pid=10435 comm="apparmor_parser"
+[ 7881.206543] audit: type=1400 audit(1498449439.606:186): apparmor="STATUS" operation="profile_replace" name="/usr/lib/NetworkManager/nm-dhcp-client.action" pid=10435 comm="apparmor_parser"
+[ 7881.206590] audit: type=1400 audit(1498449439.606:187): apparmor="STATUS" operation="profile_replace" name="/usr/lib/NetworkManager/nm-dhcp-helper" pid=10435 comm="apparmor_parser"
+[ 7881.206635] audit: type=1400 audit(1498449439.606:188): apparmor="STATUS" operation="profile_replace" name="/usr/lib/connman/scripts/dhclient-script" pid=10435 comm="apparmor_parser"
+[ 7881.246103] audit: type=1400 audit(1498449439.646:189): apparmor="STATUS" operation="profile_replace" name="/usr/lib/cups/backend/cups-pdf" pid=10437 comm="apparmor_parser"
+[ 7881.246226] audit: type=1400 audit(1498449439.646:190): apparmor="STATUS" operation="profile_replace" name="/usr/sbin/cupsd" pid=10437 comm="apparmor_parser"
+[ 7881.259355] audit: type=1400 audit(1498449439.662:191): apparmor="STATUS" operation="profile_replace" name="third_party" pid=10437 comm="apparmor_parser"
+[ 7890.179288] bdbm: nvm: total access = 100000, total read = 335, read hit = 334, read no hit = 0, total_write = 99664, write hit = 211, write no hit = 99453, evict = 0
+[ 7897.695773] bdbm: llm_make_req: 50000, 92
+[ 7899.228850] bdbm: nvm: total access = 200000, total read = 335, read hit = 334, read no hit = 0, total_write = 199664, write hit = 281, write no hit = 199383, evict = 68311
+[ 7902.193783] bdbm: llm_make_req: 100000, 96
+[ 7905.252760] bdbm: llm_make_req: 150000, 84
+[ 7907.198434] bdbm: nvm: total access = 300000, total read = 335, read hit = 334, read no hit = 0, total_write = 299664, write hit = 314, write no hit = 299350, evict = 168278
+[ 7909.922362] bdbm: llm_make_req: 200000, 95
+[ 7913.607088] bdbm: llm_make_req: 250000, 94
+[ 7915.211770] bdbm: nvm: total access = 400000, total read = 335, read hit = 334, read no hit = 0, total_write = 399664, write hit = 380, write no hit = 399284, evict = 268212
+[ 7917.585670] bdbm: llm_make_req: 300000, 94
+[ 7921.848131] bdbm: llm_make_req: 350000, 94
+[ 7923.237719] bdbm: nvm: total access = 500000, total read = 335, read hit = 334, read no hit = 0, total_write = 499664, write hit = 435, write no hit = 499229, evict = 368157
+[ 7926.080729] bdbm: llm_make_req: 400000, 96
+[ 7930.190274] bdbm: llm_make_req: 450000, 91
+[ 7931.269235] bdbm: nvm: total access = 600000, total read = 335, read hit = 334, read no hit = 0, total_write = 599664, write hit = 492, write no hit = 599172, evict = 468100
+[ 7934.196931] bdbm: llm_make_req: 500000, 96
+[ 7938.184989] bdbm: llm_make_req: 550000, 91
+[ 7939.268722] bdbm: nvm: total access = 700000, total read = 335, read hit = 334, read no hit = 0, total_write = 699664, write hit = 546, write no hit = 699118, evict = 568046
+[ 7942.179475] bdbm: llm_make_req: 600000, 94
+[ 7945.301264] bdbm: llm_make_req: 650000, 93
+[ 7947.006016] bdbm: nvm: total access = 800000, total read = 335, read hit = 334, read no hit = 0, total_write = 799664, write hit = 611, write no hit = 799053, evict = 667981
+[ 7949.225151] bdbm: llm_make_req: 700000, 96
+[ 7952.924455] bdbm: llm_make_req: 750000, 94
+[ 7954.234760] bdbm: nvm: total access = 900000, total read = 335, read hit = 334, read no hit = 0, total_write = 899664, write hit = 670, write no hit = 898994, evict = 767922
+[ 7956.249536] bdbm: llm_make_req: 800000, 95
+[ 7960.132388] bdbm: llm_make_req: 850000, 92
+[ 7961.242124] bdbm: nvm: total access = 1000000, total read = 335, read hit = 334, read no hit = 0, total_write = 999664, write hit = 721, write no hit = 998943, evict = 867871
+[ 7964.218539] bdbm: llm_make_req: 900000, 16
+[ 7969.184134] bdbm: llm_make_req: 950000, 93
+[ 7970.985650] bdbm: nvm: total access = 1100000, total read = 335, read hit = 334, read no hit = 0, total_write = 1099664, write hit = 794, write no hit = 1098870, evict = 967798
+[ 7974.052343] bdbm: llm_make_req: 1000000, 96
+[ 7978.902424] bdbm: llm_make_req: 1050000, 95
+[ 7980.369651] bdbm: nvm: total access = 1200000, total read = 335, read hit = 334, read no hit = 0, total_write = 1199664, write hit = 899, write no hit = 1198765, evict = 1067693
+[ 7983.741359] bdbm: llm_make_req: 1100000, 91
+[ 7988.566302] bdbm: llm_make_req: 1150000, 95
+[ 7990.218452] bdbm: nvm: total access = 1300000, total read = 335, read hit = 334, read no hit = 0, total_write = 1299664, write hit = 1004, write no hit = 1298660, evict = 1167588
+[ 7993.464453] bdbm: llm_make_req: 1200000, 94
+[ 7998.423079] bdbm: llm_make_req: 1250000, 96
+[ 8000.222344] bdbm: nvm: total access = 1400000, total read = 335, read hit = 334, read no hit = 0, total_write = 1399664, write hit = 1134, write no hit = 1398530, evict = 1267458
+[ 8003.497620] bdbm: llm_make_req: 1300000, 80
+[ 8010.461071] bdbm: llm_make_req: 1350000, 65
+[ 8014.205610] bdbm: nvm: total access = 1500000, total read = 335, read hit = 334, read no hit = 0, total_write = 1499664, write hit = 1242, write no hit = 1498422, evict = 1367350
+[ 8021.441271] bdbm: llm_make_req: 1400000, 96
+[ 8032.174876] bdbm: llm_make_req: 1450000, 92
+[ 8036.176875] bdbm: nvm: total access = 1600000, total read = 335, read hit = 334, read no hit = 0, total_write = 1599664, write hit = 1539, write no hit = 1598125, evict = 1467053
+[ 8043.190827] bdbm: llm_make_req: 1500000, 93
+[ 8054.764868] bdbm: llm_make_req: 1550000, 68
+[ 8058.206226] bdbm: nvm: total access = 1700000, total read = 335, read hit = 334, read no hit = 0, total_write = 1699664, write hit = 1776, write no hit = 1697888, evict = 1566816
+[ 8066.173790] bdbm: llm_make_req: 1600000, 93
+[ 8078.180694] bdbm: llm_make_req: 1650000, 96
+[ 8082.173903] bdbm: nvm: total access = 1800000, total read = 335, read hit = 334, read no hit = 0, total_write = 1799664, write hit = 1984, write no hit = 1797680, evict = 1666608
+[ 8089.858295] bdbm: llm_make_req: 1700000, 95
+[ 8102.198339] bdbm: llm_make_req: 1750000, 92
+[ 8106.250617] bdbm: nvm: total access = 1900000, total read = 335, read hit = 334, read no hit = 0, total_write = 1899664, write hit = 2233, write no hit = 1897431, evict = 1766359
+[ 8114.205667] bdbm: llm_make_req: 1800000, 59
+[ 8127.215130] bdbm: llm_make_req: 1850000, 94
+[ 8131.187241] bdbm: nvm: total access = 2000000, total read = 335, read hit = 334, read no hit = 0, total_write = 1999664, write hit = 2451, write no hit = 1997213, evict = 1866141
+[ 8139.213736] bdbm: llm_make_req: 1900000, 50
+[ 8152.208066] bdbm: llm_make_req: 1950000, 96
+[ 8156.201048] bdbm: nvm: total access = 2100000, total read = 335, read hit = 334, read no hit = 0, total_write = 2099664, write hit = 2636, write no hit = 2097028, evict = 1965956
+[ 8165.183764] bdbm: llm_make_req: 2000000, 94
+[ 8177.223586] bdbm: llm_make_req: 2050000, 46
+[ 8181.226882] bdbm: nvm: total access = 2200000, total read = 335, read hit = 334, read no hit = 0, total_write = 2199664, write hit = 2885, write no hit = 2196779, evict = 2065707
+[ 8190.195115] bdbm: llm_make_req: 2100000, 93
+[ 8202.205256] bdbm: llm_make_req: 2150000, 49
+[ 8206.180199] bdbm: nvm: total access = 2300000, total read = 335, read hit = 334, read no hit = 0, total_write = 2299664, write hit = 3106, write no hit = 2296558, evict = 2165486
+[ 8215.184379] bdbm: llm_make_req: 2200000, 89
+[ 8227.865754] bdbm: llm_make_req: 2250000, 93
+[ 8231.199290] bdbm: nvm: total access = 2400000, total read = 335, read hit = 334, read no hit = 0, total_write = 2399664, write hit = 3678, write no hit = 2395986, evict = 2264914
+[ 8238.725056] bdbm: llm_make_req: 2300000, 92
+[ 8240.087730] bdbm: llm_make_req: 2350000, 88
+[ 8240.310526] bdbm: nvm: total access = 2500000, total read = 335, read hit = 334, read no hit = 0, total_write = 2499664, write hit = 10939, write no hit = 2488725, evict = 2357653
+[ 8241.648583] bdbm: llm_make_req: 2400000, 95
+[ 8242.972968] bdbm: nvm: total access = 2600000, total read = 335, read hit = 334, read no hit = 0, total_write = 2599664, write hit = 27899, write no hit = 2571765, evict = 2440693
+[ 8243.292056] bdbm: llm_make_req: 2450000, 89
+[ 8244.838347] bdbm: llm_make_req: 2500000, 32
+[ 8245.777685] bdbm: nvm: total access = 2700000, total read = 335, read hit = 334, read no hit = 0, total_write = 2699664, write hit = 40545, write no hit = 2659119, evict = 2528047
+[ 8246.565417] bdbm: llm_make_req: 2550000, 29
+[ 8248.294309] bdbm: llm_make_req: 2600000, 83
+[ 8248.724862] bdbm: nvm: total access = 2800000, total read = 335, read hit = 334, read no hit = 0, total_write = 2799664, write hit = 54293, write no hit = 2745371, evict = 2614299
+[ 8249.906601] bdbm: llm_make_req: 2650000, 13
+[ 8251.638558] bdbm: llm_make_req: 2700000, 18
+[ 8251.716825] bdbm: nvm: total access = 2900000, total read = 335, read hit = 334, read no hit = 0, total_write = 2899664, write hit = 66085, write no hit = 2833579, evict = 2702507
+[ 8253.220614] bdbm: llm_make_req: 2750000, 93
+[ 8254.669994] bdbm: nvm: total access = 3000000, total read = 335, read hit = 334, read no hit = 0, total_write = 2999664, write hit = 74411, write no hit = 2925253, evict = 2794181
+[ 8254.883758] bdbm: llm_make_req: 2800000, 32
+[ 8256.494705] bdbm: llm_make_req: 2850000, 23
+[ 8257.579609] bdbm: nvm: total access = 3100000, total read = 335, read hit = 334, read no hit = 0, total_write = 3099664, write hit = 86785, write no hit = 3012879, evict = 2881807
+[ 8258.185497] bdbm: llm_make_req: 2900000, 93
+[ 8259.851541] bdbm: llm_make_req: 2950000, 92
+[ 8260.585305] bdbm: nvm: total access = 3200000, total read = 335, read hit = 334, read no hit = 0, total_write = 3199664, write hit = 96103, write no hit = 3103561, evict = 2972489
+[ 8261.408972] bdbm: llm_make_req: 3000000, 84
+[ 8263.124709] bdbm: llm_make_req: 3050000, 93
+[ 8263.451914] bdbm: nvm: total access = 3300000, total read = 335, read hit = 334, read no hit = 0, total_write = 3299664, write hit = 106957, write no hit = 3192707, evict = 3061635
+[ 8264.754047] bdbm: llm_make_req: 3100000, 76
+[ 8266.349677] bdbm: llm_make_req: 3150000, 21
+[ 8266.435384] bdbm: nvm: total access = 3400000, total read = 335, read hit = 334, read no hit = 0, total_write = 3399664, write hit = 115158, write no hit = 3284506, evict = 3153434
+[ 8267.978011] bdbm: llm_make_req: 3200000, 84
+[ 8269.294359] bdbm: nvm: total access = 3500000, total read = 335, read hit = 334, read no hit = 0, total_write = 3499664, write hit = 127776, write no hit = 3371888, evict = 3240816
+[ 8269.543713] bdbm: llm_make_req: 3250000, 62
+[ 8271.197751] bdbm: llm_make_req: 3300000, 85
+[ 8272.161273] bdbm: nvm: total access = 3600000, total read = 335, read hit = 334, read no hit = 0, total_write = 3599664, write hit = 138837, write no hit = 3460827, evict = 3329755
+[ 8272.788156] bdbm: llm_make_req: 3350000, 94
+[ 8274.568593] bdbm: llm_make_req: 3400000, 94
+[ 8275.072502] bdbm: nvm: total access = 3700000, total read = 335, read hit = 334, read no hit = 0, total_write = 3699664, write hit = 151226, write no hit = 3548438, evict = 3417366
+[ 8276.053872] bdbm: llm_make_req: 3450000, 95
+[ 8277.743000] bdbm: llm_make_req: 3500000, 93
+[ 8277.913423] bdbm: nvm: total access = 3800000, total read = 335, read hit = 334, read no hit = 0, total_write = 3799664, write hit = 161641, write no hit = 3638023, evict = 3506951
+[ 8279.352076] bdbm: llm_make_req: 3550000, 57
+[ 8280.806091] bdbm: nvm: total access = 3900000, total read = 335, read hit = 334, read no hit = 0, total_write = 3899664, write hit = 172783, write no hit = 3726881, evict = 3595809
+[ 8280.910322] bdbm: llm_make_req: 3600000, 94
+[ 8282.500855] bdbm: llm_make_req: 3650000, 78
+[ 8283.656424] bdbm: nvm: total access = 4000000, total read = 335, read hit = 334, read no hit = 0, total_write = 3999664, write hit = 182181, write no hit = 3817483, evict = 3686411
+[ 8284.091896] bdbm: llm_make_req: 3700000, 90
+[ 8285.720877] bdbm: llm_make_req: 3750000, 94
+[ 8286.548486] bdbm: nvm: total access = 4100000, total read = 335, read hit = 334, read no hit = 0, total_write = 4099664, write hit = 193069, write no hit = 3906595, evict = 3775523
+[ 8287.311372] bdbm: llm_make_req: 3800000, 46
+[ 8293.078044] bdbm: llm_make_req: 3850000, 36
+[ 8299.154699] bdbm: nvm: total access = 4200000, total read = 335, read hit = 334, read no hit = 0, total_write = 4199664, write hit = 202284, write no hit = 3997380, evict = 3866308
+[ 8301.741473] bdbm: -----------------------------------------------
+[ 8301.741474] bdbm: < PERFORMANCE SUMMARY >
+[ 8301.741476] bdbm: [0] Execution Time (us): 424.259568
+[ 8301.741476] bdbm: 
+[ 8301.741478] bdbm: [1] Total I/Os
+[ 8301.741478] bdbm: # of page reads: 0
+[ 8301.741479] bdbm: # of page writes: 0
+[ 8301.741479] bdbm: # of block erase: 0
+[ 8301.741479] bdbm: 
+[ 8301.741480] bdbm: [2] Normal I/Os
+[ 8301.741480] bdbm: # of page reads: 0
+[ 8301.741481] bdbm: # of page writes: 0
+[ 8301.741481] bdbm: # of page rmw reads: 0
+[ 8301.741482] bdbm: # of page rmw writes: 0
+[ 8301.741483] bdbm: 
+[ 8301.741483] bdbm: [3] GC I/Os
+[ 8301.741484] bdbm: # of GC invocation: 0
+[ 8301.741484] bdbm: # of page reads: 0
+[ 8301.741485] bdbm: # of page writes: 0
+[ 8301.741485] bdbm: # of block erase: 0
+[ 8301.741486] bdbm: 
+[ 8301.741486] bdbm: [4] Meta I/Os
+[ 8301.741486] bdbm: # of meta page reads: 0
+[ 8301.741487] bdbm: # of meta page writes: 0
+[ 8301.741487] bdbm: 
+[ 8301.741489] bdbm: [5] Elapsed Time
+[ 8301.741489] bdbm: page read (us): 0 (S:0 + Q:0 + D:0)
+[ 8301.741490] bdbm: page write (us): 0 (S:0 + Q:0 + D:0)
+[ 8301.741491] bdbm: rmw (us): 0 (S:0 + Q:0 + D:0)
+[ 8301.741491] bdbm: 
+[ 8301.741491] bdbm: [6] Utilization (R)
+[ 8301.741493] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741496] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741497] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741498] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741499] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741502] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741503] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741504] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741505] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741507] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741509] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741510] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741512] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741513] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741515] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741516] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741518] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741519] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741521] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741522] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741524] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741525] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741527] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741528] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741530] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741531] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741532] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741534] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741536] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741537] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741538] bdbm: 
+[ 8301.741538] bdbm: [7] Utilization (W)
+[ 8301.741539] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741542] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741543] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741544] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741545] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741548] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741549] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741550] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741551] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741553] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741555] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741556] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741557] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741559] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741561] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741562] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741563] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741565] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741567] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741568] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741569] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741571] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741587] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741588] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741590] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741591] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741593] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741594] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741595] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741598] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[ 8301.741598] bdbm: [8] NVM I/Os
+[ 8301.741599] bdbm: #_of_nvm_total_accesses: 4223116
+[ 8301.741599] bdbm: #_of_nvm_total_write_requests: 4222781
+[ 8301.741600] bdbm: #_of_nvm_total_read_requests: 335
+[ 8301.741600] bdbm: #_of_nvm_write_requests_serviced_by_nvm: 202298
+[ 8301.741601] bdbm: #_of_nvm_read_requests_serviced_by_nvm: 334
+[ 8301.741601] bdbm: #_of_nvm_total_requests_serviced_by_nvm: 0
+[ 8301.741614] bdbm: #_of_nvm_evict_from_nvm: 3889411
+[ 8301.741616] bdbm: #_of_nvm_write_amplification: 3889411 : 3889411
+[ 8301.741616] bdbm: 
+[ 8301.741616] bdbm: -----------------------------------------------
+[ 8301.741617] bdbm: -----------------------------------------------
+[ 8301.810152] [bdbm]total_write_traffic  : 17296510976
+[ 8301.810153] [bdbm]evict_write_traffic  : 15931027456
+[ 8301.810154] [bdbm]rflush_write_traffic : 0
+[ 8301.810154] [bdbm]flush_write_traffic  : 0
+[ 8301.810155] [bdbm]total_write_count: 4222781
+[ 8301.810156] [bdbm]evict_count      : 3889411
+[ 8301.810156] [bdbm]buffering_count  : 202298
+[ 8301.810157] [bdbm]buffering_count2 : 202298
+[ 8301.810157] [bdbm]rflush_count     : 0
+[ 8301.810157] [bdbm]flush_count      : 0
+[ 8301.810158] [bdbm]rflush_num       : 0
+[ 8301.810158] [bdbm]flush_num        : 0
+[ 8301.810159] [bdbm]gc inocation : 0
+[ 8301.810159] [bdbm]block erase  : 0
+[ 8301.881775] bdbm: done
+[ 8301.881777] bdbm: [dm_ramdrive_close] closed!
+[ 8302.325273] bdbm: [bdbm_drv_main] bdbm_drv is closed
+[ 8302.325275] bdbm: [bdbm_drv_main] bdbm_drv is removed
+[ 8303.360026] bdbm: bdbm_dm_stub is removed: /dev/bdbm_dm_stub (241 0)

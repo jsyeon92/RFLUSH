@@ -1,0 +1,180 @@
+[  221.897998] sync_rflush.sh (4550): drop_caches: 1
+[  222.653606] risa_dev_ramdrive_timing: module verification failed: signature and/or required key missing - tainting kernel
+[  222.656019] bdbm: bdbm_dm_stub is installed: /dev/bdbm_dm_stub (major:242 minor:0)
+[  222.663607] bdbm: =====================================================================
+[  222.663610] bdbm: DEVICE PARAMETERS
+[  222.663610] bdbm: =====================================================================
+[  222.663611] bdbm: # of channels = 10
+[  222.663612] bdbm: # of chips per channel = 30
+[  222.663612] bdbm: # of blocks per chip = 256
+[  222.663613] bdbm: # of pages per block = 128
+[  222.663614] bdbm: # of subpages per page = 1
+[  222.663615] bdbm: page main size  = 4096 bytes
+[  222.663615] bdbm: page oob size = 64 bytes
+[  222.663616] bdbm: device type = 3 (1: ramdrv, 2: ramdrive (intr), 3: ramdrive (timing), 4: BlueDBM, 5: libdummy, 6: libramdrive)
+[  222.663617] bdbm: 
+[  222.663618] bdbm: =====================================================================
+[  222.663618] bdbm: RAM DISK INFO
+[  222.663619] bdbm: =====================================================================
+[  222.663620] bdbm: the SSD capacity: 40265318400 (B), 39321600 (KB), 38400 (MB)
+[  226.634136] bdbm: ramssd addr = ffffc90050001000
+[  226.634138] bdbm: 
+[  226.634378] bdbm: [dm_ramdrive_probe] probe done!
+[  226.634379] bdbm: [dm_ramdrive_open] open done!
+[  226.738202] bdbm: nvm cache addr = ffffc909d5802000
+[  226.774987] bdbm: ==========================================================
+[  226.774989] bdbm: NVM CONFIGURATION
+[  226.774989] bdbm: ==========================================================
+[  226.774990] bdbm: total size = 1073741824, nr_nvm_pages = 262144, nvm_page_size	= 4096
+[  227.033178] bdbm: TRIM is disabled
+[  227.033388] bdbm: =====================================================================
+[  227.033389] bdbm: DEVICE PARAMETERS
+[  227.033390] bdbm: =====================================================================
+[  227.033390] bdbm: # of channels = 10
+[  227.033391] bdbm: # of chips per channel = 30
+[  227.033391] bdbm: # of blocks per chip = 256
+[  227.033392] bdbm: # of pages per block = 128
+[  227.033392] bdbm: # of subpages per page = 1
+[  227.033393] bdbm: page main size  = 4096 bytes
+[  227.033393] bdbm: page oob size = 64 bytes
+[  227.033394] bdbm: device type = 3 (1: ramdrv, 2: ramdrive (intr), 3: ramdrive (timing), 4: BlueDBM, 5: libdummy, 6: libramdrive)
+[  227.033394] bdbm: 
+[  227.033395] bdbm: =====================================================================
+[  227.033396] bdbm: FTL CONFIGURATION
+[  227.033396] bdbm: =====================================================================
+[  227.033397] bdbm: mapping type = 4 (1: no ftl, 2: block-mapping, 3: RSD, 4: page-mapping, 5: dftl)
+[  227.033397] bdbm: gc policy = 3 (1: merge 2: random, 3: greedy, 4: cost-benefit)
+[  227.033398] bdbm: wl policy = 1 (1: none, 2: swap)
+[  227.033398] bdbm: trim mode = 2 (1: enable, 2: disable)
+[  227.033399] bdbm: kernel sector = 512 bytes
+[  227.033399] bdbm: 
+[  227.033400] bdbm: [bdbm_drv_main] bdbm_drv is registered!
+[  228.154295] bdbm-warning: bdbm_blk_getgeo: heads=16, cylinders=1024, sectors=192 (total sectors=78643200) [/home/js/rflush_dir/final/bdbm_drv/frontend/kernel/blkdev.c:94]
+[  228.171433] bdbm: llm_make_req: 0, 1
+[  259.427647] bdbm: -----------------------------------------------
+[  259.427649] bdbm: < PERFORMANCE SUMMARY >
+[  259.427651] bdbm: [0] Execution Time (us): 32.393755
+[  259.427651] bdbm: 
+[  259.427652] bdbm: [1] Total I/Os
+[  259.427652] bdbm: # of page reads: 0
+[  259.427653] bdbm: # of page writes: 0
+[  259.427653] bdbm: # of block erase: 0
+[  259.427653] bdbm: 
+[  259.427654] bdbm: [2] Normal I/Os
+[  259.427655] bdbm: # of page reads: 0
+[  259.427656] bdbm: # of page writes: 0
+[  259.427656] bdbm: # of page rmw reads: 0
+[  259.427657] bdbm: # of page rmw writes: 0
+[  259.427657] bdbm: 
+[  259.427658] bdbm: [3] GC I/Os
+[  259.427658] bdbm: # of GC invocation: 0
+[  259.427659] bdbm: # of page reads: 0
+[  259.427659] bdbm: # of page writes: 0
+[  259.427660] bdbm: # of block erase: 0
+[  259.427661] bdbm: 
+[  259.427661] bdbm: [4] Meta I/Os
+[  259.427662] bdbm: # of meta page reads: 0
+[  259.427662] bdbm: # of meta page writes: 0
+[  259.427663] bdbm: 
+[  259.427663] bdbm: [5] Elapsed Time
+[  259.427664] bdbm: page read (us): 0 (S:0 + Q:0 + D:0)
+[  259.427664] bdbm: page write (us): 0 (S:0 + Q:0 + D:0)
+[  259.427665] bdbm: rmw (us): 0 (S:0 + Q:0 + D:0)
+[  259.427665] bdbm: 
+[  259.427667] bdbm: [6] Utilization (R)
+[  259.427669] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427670] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427671] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427674] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427675] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427676] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427678] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427680] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427681] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427682] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427685] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427686] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427687] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427688] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427691] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427692] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427693] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427695] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427697] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427698] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427700] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427702] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427703] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427705] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427706] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427708] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427709] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427711] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427712] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427714] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427715] bdbm: 
+[  259.427715] bdbm: [7] Utilization (W)
+[  259.427717] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427719] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427721] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427722] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427723] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427725] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427727] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427728] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427729] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427731] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427733] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427734] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427736] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427738] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427739] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427740] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427742] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427744] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427745] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427746] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427749] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427750] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427751] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427754] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427755] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427756] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427757] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427760] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427761] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427762] bdbm:        0        0        0        0        0        0        0        0        0        0 
+[  259.427763] bdbm: [8] NVM I/Os
+[  259.427763] bdbm: #_of_nvm_total_accesses: 20324
+[  259.427764] bdbm: #_of_nvm_total_write_requests: 19989
+[  259.427765] bdbm: #_of_nvm_total_read_requests: 335
+[  259.427766] bdbm: #_of_nvm_write_requests_serviced_by_nvm: 3
+[  259.427766] bdbm: #_of_nvm_read_requests_serviced_by_nvm: 334
+[  259.427767] bdbm: #_of_nvm_total_requests_serviced_by_nvm: 0
+[  259.427767] bdbm: #_of_nvm_evict_from_nvm: 0
+[  259.427768] bdbm: #_of_nvm_write_amplification: 0 : 0
+[  259.427768] bdbm: 
+[  259.427769] bdbm: -----------------------------------------------
+[  259.427769] bdbm: -----------------------------------------------
+[  259.505425] [bdbm]total_write_traffic  : 81874944
+[  259.505426] [bdbm]evict_write_traffic  : 0
+[  259.505427] [bdbm]rflush_write_traffic : 0
+[  259.505427] [bdbm]flush_write_traffic  : 0
+[  259.505428] [bdbm]total_write_count: 19989
+[  259.505429] [bdbm]evict_count      : 0
+[  259.505429] [bdbm]buffering_count  : 3
+[  259.505430] [bdbm]buffering_count2 : 3
+[  259.505430] [bdbm]rflush_count     : 0
+[  259.505430] [bdbm]flush _count     : 0
+[  259.505431] [bdbm]rflush_num       : 0
+[  259.505431] [bdbm]flush _num       : 0
+[  259.505432] [bdbm]max_evict_flush_num  :        : 0
+[  259.505432] [bdbm]max_evict_rflush_num :        : 0
+[  259.505433] [bdbm]gc inocation     : 0
+[  259.505433] [bdbm]block erase      : 0
+[  259.505434] [bdbm]yield_cnt        : 0
+[  259.587620] bdbm: done
+[  259.587622] bdbm: [dm_ramdrive_close] closed!
+[  260.046473] bdbm: [bdbm_drv_main] bdbm_drv is closed
+[  260.046476] bdbm: [bdbm_drv_main] bdbm_drv is removed
+[  261.083628] bdbm: bdbm_dm_stub is removed: /dev/bdbm_dm_stub (242 0)

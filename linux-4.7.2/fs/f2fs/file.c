@@ -245,6 +245,9 @@ static int f2fs_do_sync_file(struct file *file, loff_t start, loff_t end,
 	trace_f2fs_sync_file_enter(inode);
 
 	/* if fdatasync is triggered, let's do in-place-update */
+	/* fdatasync가 왔을 때 해당 파일의 dirty_page의 수가 min fsync_block 이하 일때
+ 		f2fs의 inode의 플래그를 FI_NEED_IPU를 설정하여 in-place-update를 진행한다.
+	*/
 	if (datasync || get_dirty_pages(inode) <= SM_I(sbi)->min_fsync_blocks)
 		set_inode_flag(fi, FI_NEED_IPU);
 	ret = filemap_write_and_wait_range(inode->i_mapping, start, end);//data write generic make
@@ -256,7 +259,7 @@ static int f2fs_do_sync_file(struct file *file, loff_t start, loff_t end,
 	}
 
 	/* if the inode is dirty, let's recover all the time */
-	if (!datasync) {
+	if (!datasync) {//fsync
 	//	printk(KERN_NOTICE "[f2fs]datasync\n");
 		f2fs_write_inode(inode, NULL);//f2fs inode update
 		goto go_write;
@@ -288,7 +291,6 @@ go_write:
 
 	if (need_cp) {
 		/* all the dirty node pages should be flushed for POR */
-	//	printk(KERN_NOTICE "[f2fs]f2fs_do_sync_file\n");
 		ret = f2fs_sync_fs(inode->i_sb, 1);
 
 		/*
@@ -301,7 +303,8 @@ go_write:
 		goto out;
 	}
 sync_nodes:
-	ret = fsync_node_pages(sbi, ino, &wbc, atomic);////dirty_page_write
+	/*파일에 해당하는 node들을 page cache에서 스토리지로 write한다.*/
+	ret = fsync_node_pages(sbi, ino, &wbc, atomic);////node_page_write
 	if (ret)
 		goto out;
 
@@ -317,7 +320,7 @@ sync_nodes:
 		goto sync_nodes;
 	}
 
-	ret = wait_on_node_pages_writeback(sbi, ino);///write_back_write
+	ret = wait_on_node_pages_writeback(sbi, ino);///노드 페이지가 쓰여질때까지 기다린다
 	if (ret)
 		goto out;
 

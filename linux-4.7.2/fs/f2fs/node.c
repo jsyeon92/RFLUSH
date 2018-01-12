@@ -1375,7 +1375,6 @@ continue_unlock:
 				/* someone wrote it for us */
 				goto continue_unlock;
 			}
-
 			f2fs_wait_on_page_writeback(page, NODE, true);
 			BUG_ON(PageWriteback(page));
 
@@ -1391,7 +1390,7 @@ continue_unlock:
 
 			if (!clear_page_dirty_for_io(page))
 				goto continue_unlock;
-
+			//노드 페이지를 쓴다. 
 			ret = NODE_MAPPING(sbi)->a_ops->writepage(page, wbc);
 			if (ret) {
 				unlock_page(page);

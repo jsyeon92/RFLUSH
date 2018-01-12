@@ -1,0 +1,3 @@
+0xb279c64c	bdbm_dm_get_inf	/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/risa_dev_ramdrive_timing	EXPORT_SYMBOL
+0x30854d7c	bdbm_dm_exit	/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/risa_dev_ramdrive_timing	EXPORT_SYMBOL
+0x00cf3b99	bdbm_dm_init	/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/risa_dev_ramdrive_timing	EXPORT_SYMBOL
