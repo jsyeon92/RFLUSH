@@ -1,5 +1,5 @@
 dev_main.o: \
- /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/dev_main.c \
+ /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common/dev_main.c \
  include/linux/kconfig.h include/generated/autoconf.h \
  include/linux/kernel.h /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
  include/linux/linkage.h include/linux/compiler.h \
@@ -142,10 +142,10 @@ dev_main.o: \
  include/linux/kobject_ns.h include/linux/kref.h \
  include/linux/moduleparam.h include/linux/rbtree_latch.h \
  arch/x86/include/asm/module.h include/asm-generic/module.h \
- /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/dev_stub.h \
- /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../include/bdbm_drv.h \
- /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../include/params.h \
- /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../common/utils/utime.h \
- /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../common/utils/usync.h \
+ /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common/dev_stub.h \
+ /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../include/bdbm_drv.h \
+ /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../include/params.h \
+ /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../common/utils/utime.h \
+ /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../common/utils/usync.h \
  include/generated/uapi/linux/version.h include/linux/semaphore.h \
- /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../include/debug.h
+ /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../include/debug.h

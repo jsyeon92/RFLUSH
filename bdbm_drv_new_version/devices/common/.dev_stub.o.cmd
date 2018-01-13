@@ -1,8 +1,8 @@
-cmd_/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/dev_stub.o := gcc -Wp,-MD,/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/.dev_stub.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/5/include -I./arch/x86/include -Iarch/x86/include/generated/uapi -Iarch/x86/include/generated  -Iinclude -I./arch/x86/include/uapi -Iarch/x86/include/generated/uapi -I./include/uapi -Iinclude/generated/uapi -include ./include/linux/kconfig.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -std=gnu89 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -funit-at-a-time -maccumulate-outgoing-args -DCONFIG_X86_X32_ABI -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_FXSAVEQ=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_CRC32=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -fno-delete-null-pointer-checks -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wno-unused-but-set-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -g -gdwarf-4 -pg -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types -DCC_HAVE_ASM_GOTO -I/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../include -I/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../common/utils -I/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../common/3rd -I/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common -D CONFIG_ENABLE_MSG -D CONFIG_ENABLE_DEBUG -D CONFIG_DEVICE_TYPE_RAMDRIVE_TIMING -D KERNEL_MODE -D USE_NEW_RMW  -DMODULE  -DKBUILD_BASENAME='"dev_stub"'  -DKBUILD_MODNAME='"risa_dev_ramdrive_timing"' -c -o /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/.tmp_dev_stub.o /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/dev_stub.c
+cmd_/home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common/dev_stub.o := gcc -Wp,-MD,/home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common/.dev_stub.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/5/include -I./arch/x86/include -Iarch/x86/include/generated/uapi -Iarch/x86/include/generated  -Iinclude -I./arch/x86/include/uapi -Iarch/x86/include/generated/uapi -I./include/uapi -Iinclude/generated/uapi -include ./include/linux/kconfig.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -std=gnu89 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -funit-at-a-time -maccumulate-outgoing-args -DCONFIG_X86_X32_ABI -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_FXSAVEQ=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_CRC32=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -fno-delete-null-pointer-checks -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wno-unused-but-set-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -g -gdwarf-4 -pg -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types -DCC_HAVE_ASM_GOTO -I/home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../include -I/home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../common/utils -I/home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../common/3rd -I/home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common -D CONFIG_ENABLE_MSG -D CONFIG_ENABLE_DEBUG -D CONFIG_DEVICE_TYPE_RAMDRIVE_TIMING -D KERNEL_MODE -D USE_NEW_RMW  -DMODULE  -DKBUILD_BASENAME='"dev_stub"'  -DKBUILD_MODNAME='"risa_dev_ramdrive_timing"' -c -o /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common/.tmp_dev_stub.o /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common/dev_stub.c
 
-source_/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/dev_stub.o := /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/dev_stub.c
+source_/home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common/dev_stub.o := /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common/dev_stub.c
 
-deps_/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/dev_stub.o := \
+deps_/home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common/dev_stub.o := \
   include/linux/kernel.h \
     $(wildcard include/config/lbdaf.h) \
     $(wildcard include/config/preempt/voluntary.h) \
@@ -745,16 +745,16 @@ deps_/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/dev_st
   include/linux/vm_event_item.h \
     $(wildcard include/config/memory/balloon.h) \
     $(wildcard include/config/balloon/compaction.h) \
-  /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../include/bdbm_drv.h \
-  /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../include/params.h \
-  /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../common/utils/utime.h \
-  /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../common/utils/usync.h \
+  /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../include/bdbm_drv.h \
+  /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../include/params.h \
+  /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../common/utils/utime.h \
+  /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../common/utils/usync.h \
   include/generated/uapi/linux/version.h \
-  /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../include/debug.h \
+  /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../include/debug.h \
     $(wildcard include/config/enable/msg.h) \
     $(wildcard include/config/enable/debug.h) \
-  /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../include/params.h \
-  /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../common/utils/uthread.h \
+  /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../include/params.h \
+  /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../common/utils/uthread.h \
   include/linux/delay.h \
   arch/x86/include/asm/delay.h \
   include/asm-generic/delay.h \
@@ -874,10 +874,10 @@ deps_/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/dev_st
     $(wildcard include/config/cgroup/hugetlb.h) \
     $(wildcard include/config/cgroup/pids.h) \
     $(wildcard include/config/cgroup/debug.h) \
-  /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/dev_params.h \
-  /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/dev_stub.h \
-  /home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../../common/utils/umemory.h \
+  /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common/dev_params.h \
+  /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common/dev_stub.h \
+  /home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../../common/utils/umemory.h \
 
-/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/dev_stub.o: $(deps_/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/dev_stub.o)
+/home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common/dev_stub.o: $(deps_/home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common/dev_stub.o)
 
-$(deps_/home/js/rflush_dir/final/bdbm_drv/devices/ramdrive_timing/../common/dev_stub.o):
+$(deps_/home/js/rflush_git/bdbm_drv_new_version/devices/ramdrive_timing/../common/dev_stub.o):
