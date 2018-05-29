@@ -12,8 +12,7 @@ A FLUSH command has been used for decades to enforce persistence and ordering of
 #### install
 * make install kernel 4.7.2
 
-<pre> 
-cd linux-4.7.2
+<pre>cd linux-4.7.2
 make-kpkg --initrd --revision=1.1 kernel_image -j4
 cd ..
 dpkg -i linux-image-4.7.2_1.1_amd64.deb
@@ -21,8 +20,7 @@ reboot
 </pre>
  
 * make bluedbm
-<pre> 
-cd devices/ramdrive
+<pre>cd devices/ramdrive
 make
 cd -
 cd devices/ramdrive_timing
@@ -35,8 +33,7 @@ cd -
 
 #### run bludbm
 * run bludbm
-<pre>
-cd frontend/kernel
+<pre>cd frontend/kernel
 ./mount_f2fs_ram.sh
 </pre>
 
