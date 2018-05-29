@@ -1,6 +1,6 @@
 #define FLUSHON
 #define file1
-
+#define hash
 
 /*
 The MIT License (MIT)
@@ -51,9 +51,18 @@ typedef struct {
 	bdbm_logaddr_t logaddr;
 //	bdbm_phyaddr_t phyaddr;
 	struct list_head list;	/* for lru list */
+	struct list_head ino_list; /*for hash ino list*/
 	uint64_t ino;
 	uint32_t size;
 } bdbm_nvm_page_t;
+
+typedef struct {
+	uint64_t ino;
+	uint32_t cnt;
+	struct list_head list;
+	struct list_head ino_head;
+}bdbm_nvm_hash_t;
+
 
 typedef struct {
 	int64_t tbl_idx;
@@ -90,7 +99,7 @@ typedef struct {
 	struct list_head* lru_list;
 	struct list_head* free_list;
 //jsyeon0111
-	struct list_head* clear_list;
+	struct list_head* hash_list;
 
 //	bdbm_nvm_block_t* ptr_lru_list;
 

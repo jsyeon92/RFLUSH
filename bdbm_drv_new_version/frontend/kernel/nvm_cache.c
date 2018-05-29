@@ -287,7 +287,7 @@ uint32_t bdbm_nvm_create (bdbm_drv_info_t* bdi){
 		return 1;
 	}
 //jsyeon0111
-	if((p->clear_list = (struct list_head*) bdbm_zmalloc (sizeof(struct list_head))) == NULL) {
+	if((p->hash_list = (struct list_head*) bdbm_zmalloc (sizeof(struct list_head))) == NULL) {
 		bdbm_error ("__alloc nvmram clear_list failed");
 		bdbm_nvm_destroy(bdi);
 		return 1;
@@ -301,7 +301,7 @@ uint32_t bdbm_nvm_create (bdbm_drv_info_t* bdi){
 
 	INIT_LIST_HEAD(p->lru_list);
 	INIT_LIST_HEAD(p->free_list);
-	INIT_LIST_HEAD(p->clear_list);
+	INIT_LIST_HEAD(p->hash_list);
 	//jsyeon
 	do_gettimeofday(&start);
 	/* add all pages into free list */
@@ -466,7 +466,6 @@ uint64_t bdbm_nvm_flush_data (bdbm_drv_info_t* bdi, uint64_t ino)
 	struct fw_entry * fw_entry;
 	struct fw_entry * temp_entry;
 	uint32_t flag=0;
-	
 	list_for_each_entry_safe(fpage, fpage_temp, p->lru_list, list){	
 		if(fpage->status == CLEAR)
 			continue;
@@ -499,11 +498,6 @@ uint64_t bdbm_nvm_flush_data (bdbm_drv_info_t* bdi, uint64_t ino)
 		loop++;
 		if(loop >= max_evict_flush_num)
 			max_evict_flush_num=loop;
-//		bdbm_msg("flush 1\n");
-		list_del(&fpage->list);//delete lru list
-//		bdbm_msg("flush 2\n");
-		list_add(&fpage->list, p->clear_list);//insert clear list
-//		bdbm_msg("flush 3\n");
 	}
 	flush_cnt += loop;	
 	flush_num++;
@@ -730,11 +724,14 @@ static int64_t bdbm_nvm_alloc_slot (bdbm_drv_info_t* bdi, bdbm_llm_req_t* lr)
 #ifdef NVM_CACHE_DEBUG
 	uint8_t* ptr_ramssd_data = NULL; 
 #endif
+#ifdef hash
+	bdbm_nvm_hash_t* hash_ino_node=NULL;
+	uint8_t hash_hit=0;
+#endif
 
 	lpa = lr->logaddr.lpa[0];
 
 	/* get a free page */
-//	if(p->nr_free_pages > LOW_WATERMARK){
 	if(p->nr_free_pages > 0){
 //		bdbm_msg("get a free nvm buffer");
 		bdbm_bug_on(list_empty(p->free_list));
@@ -749,7 +746,34 @@ static int64_t bdbm_nvm_alloc_slot (bdbm_drv_info_t* bdi, bdbm_llm_req_t* lr)
 #ifdef	RFLUSH
 		nvm_lookup_tbl[lpa].ptr_page = npage;
 #endif
-
+#ifdef hash
+		if(list_empty(p->hash_list)){//hash list empty
+			//ino list node insert
+			hash_ino_node=(bdbm_nvm_hash_t*)bdbm_zmalloc(sizeof(bdbm_nvm_hash_t));
+			hash_ino_node->ino=lr->ino;
+			hash_ino_node->cnt=1;
+			INIT_LIST_HEAD(&hash_ino_node->ino_head);
+			list_add(&npage->ino_list, &hash_ino_node->ino_head);//page insert in ino_list
+			list_add(&hash_ino_node->list , p->hash_list);//hash list ino node insert
+		}else{
+			list_for_each_entry(hash_ino_node, p->hash_list, list){
+				if(hash_ino_node->ino==lr->ino){//if ino list exist
+					list_add(&npage->ino_list, &hash_ino_node->ino_head);
+					hash_ino_node->cnt++;
+					hash_hit=1;
+					break;
+				}
+			}
+			if(hash_hit==0){
+				hash_ino_node=(bdbm_nvm_hash_t*)bdbm_zmalloc(sizeof(bdbm_nvm_hash_t));
+				hash_ino_node->ino=lr->ino;
+				hash_ino_node->cnt=1;
+				INIT_LIST_HEAD(&hash_ino_node->ino_head);
+				list_add(&npage->ino_list, &hash_ino_node->ino_head);//page insert in ino_list
+				list_add(&hash_ino_node->list , p->hash_list);//hash list ino node insert
+			}
+		}
+#endif
 	}
 	else { 
 		for(i=0; i< 1 ; i++){
@@ -762,10 +786,7 @@ static int64_t bdbm_nvm_alloc_slot (bdbm_drv_info_t* bdi, bdbm_llm_req_t* lr)
 //			bdbm_bug_on(!list_empty(p->free_list));
 //			bdbm_bug_on(list_empty(p->lru_list));
 //jsyeon0111			
-			if(!list_empty(p->clear_list))
-				epage = list_last_entry(p->clear_list, bdbm_nvm_page_t, list);
-			else
-				epage = list_last_entry(p->lru_list, bdbm_nvm_page_t, list);
+			epage = list_last_entry(p->lru_list, bdbm_nvm_page_t, list);
 //			bdbm_error("evitct_page NULL\n");
 			bdbm_bug_on(epage == NULL);
 			eindex = epage->index;
@@ -812,10 +833,24 @@ static int64_t bdbm_nvm_alloc_slot (bdbm_drv_info_t* bdi, bdbm_llm_req_t* lr)
 	
 //			bdbm_error("evitct_check3\n");
 			list_del(&epage->list);//LRU_LIST_node delete
+			
 
 //			bdbm_error("evitct_check4\n");
 			list_add(&epage->list, p->free_list);//free list insert
 //			bdbm_error("evitct_cnt : %d\n", i);
+#ifdef hash1
+			list_for_each_entry(hash_ino_node, p->hash_list, list){
+				if(hash_ino_node->ino==epage->ino){
+					hash_ino_node->cnt--;
+					epage=list_last_entry(&hash_ino_node->ino_head, bdbm_nvm_page_t, ino_list);	
+					list_del(&epage->ino_list);
+					break;
+				}
+			}	
+#endif
+#ifdef hash
+			list_del(&epage->ino_list);
+#endif
 		}
 //		bdbm_error("evict page write complete\n");
 		/* set new page index */
@@ -830,6 +865,24 @@ static int64_t bdbm_nvm_alloc_slot (bdbm_drv_info_t* bdi, bdbm_llm_req_t* lr)
 		nvm_lookup_tbl[lpa].ptr_page = npage;
 #endif
 //		bdbm_error("evict complete\n");
+#ifdef hash
+		list_for_each_entry(hash_ino_node, p->hash_list, list){
+			if(hash_ino_node->ino==lr->ino){//if ino list exist
+				list_add(&npage->ino_list, &hash_ino_node->ino_head);
+				hash_ino_node->cnt++;
+				hash_hit=1;
+				break;
+			}
+		}
+		if(hash_hit==0){
+			hash_ino_node=(bdbm_nvm_hash_t*)bdbm_zmalloc(sizeof(bdbm_nvm_hash_t));
+			hash_ino_node->ino=lr->ino;
+			hash_ino_node->cnt=1;
+			INIT_LIST_HEAD(&hash_ino_node->ino_head);
+			list_add(&npage->ino_list, &hash_ino_node->ino_head);//page insert in ino_list
+			list_add(&hash_ino_node->list , p->hash_list);//hash list ino node insert
+		}
+#endif
 	}
 
 	bdbm_bug_on(p->nr_free_pages + p->nr_inuse_pages != p->nr_total_pages);
@@ -969,136 +1022,6 @@ fail:
 
 }
 
-#ifdef RFLUSH1
-uint64_t bdbm_nvm_rflush_data (bdbm_drv_info_t* bdi, bdbm_hlm_req_t* hr) {
-	/* find nvm cache */
-	bdbm_device_params_t* np = BDBM_GET_DEVICE_PARAMS (bdi);
-	bdbm_blkio_private_t* bp = (bdbm_blkio_private_t*) BDBM_HOST_PRIV(bdi);
-	bdbm_nvm_dev_private_t* p = _nvm_dev.ptr_private;	// have lists lru_list and free_list
-	bdbm_nvm_lookup_tbl_entry_t* nvm_lookup_tbl = p->ptr_nvm_lookup_tbl;
-	bdbm_hlm_req_t* lhr = NULL;
-	bdbm_nvm_page_t* fpage = NULL;
-	uint8_t* fdata_ptr = NULL;
-	int64_t findex = -1;
-	sector_t i = 0;
-	uint64_t loop = 0;
-	uint32_t fsize=0;
-	
-	bdbm_blkio_req_t* br = (bdbm_blkio_req_t*) hr->blkio_req;
-	struct bio* bi = (struct bio*) br->bio;
-	sector_t lpamin = 0;
-	sector_t lpamax = 0;
-
-	struct lba_entry* lba_entry;
-	struct lba_entry* temp;
-	struct list_head* lba_list=bi->bi_rl;
-//	struct list_head lba_list = bi->bi_rl;
-
-//	printk("lpamin : %lu\n", lpamin);
-//	printk("lpamax : %lu\n", lpamax);
-	list_for_each_entry_safe(lba_entry, temp, lba_list, list){
-
-		lpamin = lba_entry->start_sec;
-		lpamax = lba_entry->end_sec;
-	
-//		printk("lpamin : %lu\n", lpamin);
-//		printk("lpamax : %lu\n", lpamax);
-/*	
-		if(lpamin == UINT_MAX)
-		{
-			bdbm_bug_on("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT\n");
-		}
-*/
-		for (i = lpamin; i <= lpamax; i++) {
-			if (nvm_lookup_tbl[i].tbl_idx == -1)
-				continue;
-/*
-			if(nvm_lookup_tbl[i].ptr_page == NULL)
-			{
-				printk(KERN_NOTICE "[bdbm]nvm_lookup_tbl[i].page NULL!!");
-				continue;
-			}
-*/
-			fpage = nvm_lookup_tbl[i].ptr_page;
-			if(fpage->status == CLEAR)
-				continue;
-			bdbm_bug_on(fpage == NULL);
-			findex = fpage->index;
-			fsize = fpage->size;
-			fdata_ptr = p->ptr_nvmram + (findex * np->nvm_page_size);
-
-			/* get a free hlm_req from the hlm_reqs_pool */
-   		    if ((lhr = bdbm_hlm_reqs_pool_get_item(bp->hlm_reqs_pool)) == NULL) {
-				bdbm_error("bdbm_hlm_reqs_pool_get_item () failed");
-       		    goto fail;
-      		 }
-				    
-    	    /* build hlm_req with nvm_info */
-        	if (bdbm_hlm_reqs_pool_build_wb_req (lhr, &fpage->logaddr, fdata_ptr) != 0) {
-            	bdbm_error ("bdbm_hlm_reqs_pool_build_req () failed");
-            	goto fail;
-       		}
-
-        	/* send req */
-        	bdbm_sema_lock (&bp->host_lock);
-
-			if(bdi->ptr_hlm_inf->make_wb_req (bdi, lhr) != 0) {
-            	bdbm_error ("'bdi->ptr_hlm_inf->make_req' failed");
-        	}
-		
-        	bdbm_sema_unlock (&bp->host_lock);
-/* 
-			nvm_lookup_tbl[i].tbl_idx = -1; 
-        	nvm_lookup_tbl[i].ptr_page = NULL;
-        
-			list_del(&fpage->list);
-        	p->nr_inuse_pages--;
-        	list_add(&fpage->list, p->free_list);
-        	p->nr_free_pages++;
-
-*/
-			rflush_write_traffic += fsize;
-			fpage->status=CLEAR;
-			loop++;
-			fsize=0;
-
-		}
-	}
-	rflush_cnt += loop;
-	rflush_num++;
-/*	
-	if(p->nr_total_write % 100 == 0){
-	printk(KERN_NOTICE "[bdbm]total_write_traffic  : %lu\n", total_write_traffic);
-	printk(KERN_NOTICE "[bdbm]evict_write_traffic  : %lu\n", evict_write_traffic);
-	printk(KERN_NOTICE "[bdbm]rflush_write_traffic : %lu\n", rflush_write_traffic);
-	printk(KERN_NOTICE "[bdbm]flush_write_traffic  : %lu\n", flush_write_traffic);
-	printk(KERN_NOTICE "[bdbm]total_write_count: %lu\n", p->nr_total_write);
-	printk(KERN_NOTICE "[bdbm]evict_count      : %lu\n", evict_cnt);
-	printk(KERN_NOTICE "[bdbm]buffering_count  : %lu\n", p->nr_write);
-	printk(KERN_NOTICE "[bdbm]buffering_count2 : %lu\n", atomic64_read(&bdi->pm.nvm_wh_cnt));
-	printk(KERN_NOTICE "[bdbm]rflush_count     : %lu\n", rflush_cnt);
-	printk(KERN_NOTICE "[bdbm]flush_count      : %lu\n", flush_cnt);
-	printk(KERN_NOTICE "[bdbm]rflush_num       : %lu\n", rflush_num);
-	printk(KERN_NOTICE "[bdbm]flush_num        : %lu\n", flush_num);
-	printk(KERN_NOTICE "[bdbm]gc inocation : %ld\n", atomic64_read(&bdi->pm.gc_cnt));
-	printk(KERN_NOTICE "{bdbm}block erase  : %ld\n", atomic64_read(&bdi->pm.gc_erase_cnt));
-	}
-*/
-
-	if(!loop)
-		return 0;
-	else
-		return 1;
-
-fail:
-	if (lhr)
-		bdbm_hlm_reqs_pool_free_item (bp->hlm_reqs_pool, lhr);
-	bdbm_bug_on(1);
-
-	return -1;
-}
-#endif
-
 #ifdef RFLUSH
 uint64_t bdbm_nvm_rflush_data (bdbm_drv_info_t* bdi, uint64_t ino) {
 	/* find nvm cache */
@@ -1115,51 +1038,52 @@ uint64_t bdbm_nvm_rflush_data (bdbm_drv_info_t* bdi, uint64_t ino) {
 	uint64_t loop = 0;
 	uint32_t fsize=0;
 	
-	sector_t lpamin = 0;
-	sector_t lpamax = 0;
-
 	struct lba_entry* lba_entry;
 	struct lba_entry* temp;
+#ifdef hash
+	bdbm_nvm_hash_t* hash_ino_node=NULL;	
+	struct list_head* head_temp=NULL;
+#endif
 	
 	fino = ino;
-	
-	list_for_each_entry_safe(fpage, fpage_temp, p->lru_list, list){	
-//		if(fpage->status ==DIRTY){
-	//		if( fpage->ino == fino || fpage->ino == 1 || fpage->ino == 2 || fpage->ino == 0){
-			if( fpage->ino == fino ){
-				findex = fpage->index;
-				fsize = fpage->size;
-				fdata_ptr = p->ptr_nvmram + (findex * np->nvm_page_size);
-				/* get a free hlm_req from the hlm_reqs_pool */
-   			    if ((lhr = bdbm_hlm_reqs_pool_get_item(bp->hlm_reqs_pool)) == NULL) {
-					bdbm_error("bdbm_hlm_reqs_pool_get_item () failed");
-   	    		    goto fail;
-   		   		 }
-						    
-   	 		    /* build hlm_req with nvm_info */
-   	   		  	if (bdbm_hlm_reqs_pool_build_wb_req (lhr, &fpage->logaddr, fdata_ptr) != 0) {
-       	   		  	bdbm_error ("bdbm_hlm_reqs_pool_build_req () failed");
-       	   		  	goto fail;
-       			}
 
-        		/* send req */
-        		bdbm_sema_lock (&bp->host_lock);
+	list_for_each_entry(hash_ino_node, p->hash_list, list){
+		if(hash_ino_node->ino==fino){//hit
+			list_for_each_entry_safe(fpage, fpage_temp, &hash_ino_node->ino_head, ino_list){	
+				if(fpage->status ==DIRTY){
+	//			if( fpage->ino == fino || fpage->ino == 1 || fpage->ino == 2 || fpage->ino == 0){
+					findex = fpage->index;
+					fsize = fpage->size;
+					fdata_ptr = p->ptr_nvmram + (findex * np->nvm_page_size);
+					/* get a free hlm_req from the hlm_reqs_pool */
+   				    if ((lhr = bdbm_hlm_reqs_pool_get_item(bp->hlm_reqs_pool)) == NULL) {
+						bdbm_error("bdbm_hlm_reqs_pool_get_item () failed");
+   	    			    goto fail;
+   		   			 }
+							    
+   	 			    /* build hlm_req with nvm_info */
+   	   			  	if (bdbm_hlm_reqs_pool_build_wb_req (lhr, &fpage->logaddr, fdata_ptr) != 0) {
+       	   			  	bdbm_error ("bdbm_hlm_reqs_pool_build_req () failed");
+       	   			  	goto fail;
+       				}
 	
-				if(bdi->ptr_hlm_inf->make_wb_req (bdi, lhr) != 0) {
+   		     		/* send req */
+   	   		  		bdbm_sema_lock (&bp->host_lock);
+		
+					if(bdi->ptr_hlm_inf->make_wb_req (bdi, lhr) != 0) {
    	    	     	bdbm_error ("'bdi->ptr_hlm_inf->make_req' failed");
-   		     	}
-       		 	bdbm_sema_unlock (&bp->host_lock);
-				rflush_write_traffic += fsize;
-				fpage->status=CLEAR;
-				loop++;
-				fsize=0;
-				if(loop >= max_evict_rflush_num)
-					max_evict_rflush_num=loop;
-				list_del(&fpage->list);//delete lru list
-				list_add(&fpage->list, p->clear_list);//insert clear list
+   		    	 	}
+       			 	bdbm_sema_unlock (&bp->host_lock);
+					rflush_write_traffic += fsize;
+					fpage->status=CLEAR;
+					loop++;
+					fsize=0;
+					if(loop >= max_evict_rflush_num)
+						max_evict_rflush_num=loop;
+				}			
 			}
-	//	}		
-	}
+		}
+	}	
 	//bdbm_msg("flush ino : %d", ino);
 	rflush_cnt += loop;
 	rflush_num++;
