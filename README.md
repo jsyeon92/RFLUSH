@@ -7,7 +7,7 @@ A FLUSH command has been used for decades to enforce persistence and ordering of
 * ubuntu 16.04
 * DRAM 64GB
 * f2fs-tools
-* blubm capacity 38G
+* bluedbm capacity 38G
 
 #### install
 * make install kernel 4.7.2
